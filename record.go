@@ -8,5 +8,5 @@ type Record struct {
 	Caller    Caller
 	Level     Level
 	Message   string
-	//Data      map[string]interface{}
+	Data      map[string]interface{}
 }

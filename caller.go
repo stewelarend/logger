@@ -55,6 +55,14 @@ func (c Caller) Package() string {
 	return ""
 }
 
+//return "github.com/go-msvc/ms_test/my_test.go"
+func (c Caller) PackageFile() string {
+	if i := strings.LastIndex(c.pkgDotFunc, "."); i >= 0 {
+		return c.pkgDotFunc[:i] + "/" + path.Base(c.file)
+	}
+	return ""
+}
+
 //with Function: "github.com/go-msvc/ms_test.TestCaller"
 //return "github.com/go-msvc/ms_test"
 func (c Caller) Function() string {
@@ -64,6 +72,7 @@ func (c Caller) Function() string {
 	return ""
 }
 
+//return full file name on system where code is built...
 func (c Caller) File() string {
 	return c.file
 }

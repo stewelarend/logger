@@ -8,6 +8,8 @@ const (
 	LevelError Level = iota
 	LevelInfo
 	LevelDebug
+	//
+	LevelDefault //use parent's level
 )
 
 func (l Level) String() string {
@@ -18,6 +20,8 @@ func (l Level) String() string {
 		return "INFO"
 	case LevelDebug:
 		return "DEBUG"
+	case LevelDefault:
+		return "DEFAULT"
 	default:
 	}
 	return fmt.Sprintf("LEVEL(%v)", int(l))
